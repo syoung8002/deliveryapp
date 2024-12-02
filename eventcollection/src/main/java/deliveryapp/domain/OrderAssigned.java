@@ -10,6 +10,6 @@ public class OrderAssigned extends AbstractEvent {
 
     private String driverId;
     private String driverName;
-    private DateTime estimatedDeliveryTime;
+    private Date estimatedDeliveryTime;
     private OrderId orderId;
 }

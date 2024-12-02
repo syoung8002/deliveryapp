@@ -10,6 +10,6 @@ public class CompletePaymentCommand {
     private String paymentId;
     private Money amount;
     private String paymentMethod;
-    private paymentMethodType paymentMethodType;
+    private PaymentMethodType paymentMethodType;
     private OrderId orderId;
 }

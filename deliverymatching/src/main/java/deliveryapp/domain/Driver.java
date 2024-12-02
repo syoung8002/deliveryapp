@@ -19,35 +19,21 @@ public class Driver  {
 
     
     @Id
-    
-    
-    
-    
-    
     private String driverId;
     
-    
-    
-    
     private String name;
-    
-    
     
     @Embedded
     private OrderId orderId;
 
     @PostPersist
     public void onPostPersist(){
-
-
         OrderRejected orderRejected = new OrderRejected(this);
         orderRejected.publishAfterCommit();
-
-    
     }
+
     @PrePersist
     public void onPrePersist(){
-    
     }
 
     public static DriverRepository repository(){
@@ -59,18 +45,10 @@ public class Driver  {
 
 //<<< Clean Arch / Port Method
     public void orderAccept(OrderAcceptCommand orderAcceptCommand){
-        
         //implement business logic here:
-        
-
-        deliveryapp.external.DriverQuery driverQuery = new deliveryapp.external.DriverQuery();
-        // driverQuery.set??()        
-          = DriverApplication.applicationContext
-            .getBean(deliveryapp.external.Service.class)
-            .driver(driverQuery);
-
+       
         OrderAssigned orderAssigned = new OrderAssigned(this);
-        orderAssigned.setOrderId(orderAcceptCommand.get());
+        orderAssigned.setOrderId(orderAcceptCommand.getOrderId());
         orderAssigned.publishAfterCommit();
     }
 //>>> Clean Arch / Port Method

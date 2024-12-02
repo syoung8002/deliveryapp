@@ -3,8 +3,10 @@ package deliveryapp.infra;
 import deliveryapp.config.kafka.KafkaProcessor;
 import deliveryapp.domain.*;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -17,6 +19,9 @@ public class EventCollectorViewHandler {
     @Autowired
     private EventCollectorRepository eventCollectorRepository;
 
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+
     @StreamListener(KafkaProcessor.INPUT)
     public void whenOrderStatusChecked_then_CREATE_1(
         @Payload OrderStatusChecked orderStatusChecked
@@ -24,13 +29,17 @@ public class EventCollectorViewHandler {
         try {
             if (!orderStatusChecked.validate()) return;
 
+            // timestamp
+            Date date = new Date();
+            String timestamp = format.format(date);
+
             // view 객체 생성
             EventCollector eventCollector = new EventCollector();
             // view 객체에 이벤트의 Value 를 set 함
-            eventCollector.setType(OrderStatusChecked);
+            eventCollector.setType("OrderStatusChecked");
             eventCollector.setCorrelationKey(orderStatusChecked.getOrderId());
             eventCollector.setTimestamp(timestamp);
-            eventCollector.setPayload(OrderStatusChecked);
+            eventCollector.setPayload(orderStatusChecked.toString());
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);
         } catch (Exception e) {
@@ -45,14 +54,17 @@ public class EventCollectorViewHandler {
         try {
             if (!orderAssigned.validate()) return;
 
+            Date date = new Date();
+            String timestamp = format.format(date);
+            
             // view 객체 생성
             EventCollector eventCollector = new EventCollector();
             // view 객체에 이벤트의 Value 를 set 함
-            eventCollector.setType(OrderAssigned);
+            eventCollector.setType("OrderAssigned");
             eventCollector.setCorrelationKey(
                 String.valueOf(orderAssigned.getOrderId())
             );
-            eventCollector.setPayload(OrderAssigned);
+            eventCollector.setPayload(orderAssigned.toString());
             eventCollector.setTimestamp(timestamp);
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);
@@ -68,14 +80,17 @@ public class EventCollectorViewHandler {
         try {
             if (!orderPaymentCompleted.validate()) return;
 
+            Date date = new Date();
+            String timestamp = format.format(date);
+
             // view 객체 생성
             EventCollector eventCollector = new EventCollector();
             // view 객체에 이벤트의 Value 를 set 함
-            eventCollector.setType(OrderPaymentCompleted);
+            eventCollector.setType("OrderPaymentCompleted");
             eventCollector.setCorrelationKey(
                 String.valueOf(orderPaymentCompleted.getOrderId())
             );
-            eventCollector.setPayload(OrderPaymentCompleted);
+            eventCollector.setPayload(orderPaymentCompleted.toString());
             eventCollector.setTimestamp(timestamp);
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);
@@ -91,12 +106,15 @@ public class EventCollectorViewHandler {
         try {
             if (!reviewAdded.validate()) return;
 
+            Date date = new Date();
+            String timestamp = format.format(date);
+
             // view 객체 생성
             EventCollector eventCollector = new EventCollector();
             // view 객체에 이벤트의 Value 를 set 함
-            eventCollector.setType(ReviewAdded);
+            eventCollector.setType("ReviewAdded");
             eventCollector.setCorrelationKey(reviewAdded.getOrderId());
-            eventCollector.setPayload(ReviewAdded);
+            eventCollector.setPayload(reviewAdded.toString());
             eventCollector.setTimestamp(timestamp);
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);

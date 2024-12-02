@@ -14,7 +14,7 @@ public class OrderPaymentCompleted extends AbstractEvent {
     private String paymentId;
     private Money amount;
     private String paymentMethod;
-    private paymentMethodType paymentMethodType;
+    private PaymentMethodType paymentMethodType;
     private OrderId orderId;
 
     public OrderPaymentCompleted(Payment aggregate) {

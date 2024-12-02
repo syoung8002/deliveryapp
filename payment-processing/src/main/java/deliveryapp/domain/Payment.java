@@ -22,7 +22,7 @@ public class Payment {
     private String paymentMethod;
 
     @Embedded
-    private paymentMethodType paymentMethodType;
+    private PaymentMethodType paymentMethodType;
 
     @Embedded
     private OrderId orderId;
@@ -42,8 +42,7 @@ public class Payment {
         //implement business logic here:
 
         OrderPaymentCompleted orderPaymentCompleted = new OrderPaymentCompleted(
-            this
-        );
+            this);
         orderPaymentCompleted.setOrderId(completePaymentCommand.getOrderId());
         orderPaymentCompleted.publishAfterCommit();
     }
