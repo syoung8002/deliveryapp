@@ -120,7 +120,7 @@
             this.newValue = {
                 'orderId': '',
                 'foodType': '',
-                'quantity': '',
+                'quantity': 0,
                 'specialRequest': '',
             }
         },

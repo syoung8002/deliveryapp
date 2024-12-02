@@ -11,7 +11,9 @@
             <div>
                 <String label="FoodType" v-model="item.foodType" :editMode="editMode" @change="change" />
             </div>
-            <int offline label="Quantity" v-model="item.quantity" :editMode="false" :key="false" @change="change" />
+            <div>
+                <Number label="Quantity" v-model="item.quantity" :editMode="editMode" @change="change" />
+            </div>
             <div>
                 <String label="SpecialRequest" v-model="item.specialRequest" :editMode="editMode" @change="change" />
             </div>

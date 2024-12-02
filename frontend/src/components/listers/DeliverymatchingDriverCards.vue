@@ -9,8 +9,7 @@
             <v-row>
                 <v-list-item class="d-flex" style="background-color: white;">
                     <h1 class="align-self-center ml-3">배달 기사</h1>
-                    <div class="secondary-text-color" style="margin-left:30px;">음식을 배달하는 배달 기사 객체
-배달 완료에 대한 </div>
+                    <div class="secondary-text-color" style="margin-left:30px;">음식을 배달하는 배달 기사 객체</div>
                 </v-list-item>
             </v-row>
         </v-card>
