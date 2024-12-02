@@ -16,6 +16,14 @@ public class OrderHateoasProcessor
             Link
                 .of(
                     model.getRequiredLink("self").getHref() +
+                    "/checkorderstatus"
+                )
+                .withRel("checkorderstatus")
+        );
+        model.add(
+            Link
+                .of(
+                    model.getRequiredLink("self").getHref() +
                     "//addreviewandrating"
                 )
                 .withRel("/addreviewandrating")
