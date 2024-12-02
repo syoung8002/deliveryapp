@@ -18,7 +18,7 @@
         <v-card-text style="background-color: white;">
             <String v-if="editMode" label="주문 ID" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
             <String label="음식 종류" v-model="value.foodType" :editMode="editMode" :inputUI="''"/>
-            <int offline label="수량" v-model="value.quantity" :editMode="editMode" @change="change"/>
+            <Number label="수량" v-model="value.quantity" :editMode="editMode" :inputUI="''"/>
             <String label="특별 요청 사항" v-model="value.specialRequest" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 

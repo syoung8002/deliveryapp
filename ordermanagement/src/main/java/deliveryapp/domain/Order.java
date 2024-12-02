@@ -20,8 +20,7 @@ public class Order {
 
     private String foodType;
 
-    @Embedded
-    private int quantity;
+    private Integer quantity;
 
     private String specialRequest;
 

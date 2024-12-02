@@ -170,8 +170,7 @@ export default {
             },
             { 
                 title: '배달 기사', 
-                description: '음식을 배달하는 배달 기사 객체
-배달 완료에 대한 ', 
+                description: '음식을 배달하는 배달 기사 객체', 
                 key: 'drivers', 
                 route: '/deliverymatchings/drivers',
                 ImageUrl: '',
