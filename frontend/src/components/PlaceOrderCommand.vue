@@ -7,8 +7,8 @@
         <v-card-text>
             <String label="OrderId" v-model="value.orderId" :editMode="editMode"/>
             <String label="FoodType" v-model="value.foodType" :editMode="editMode"/>
-            <int offline label="Quantity" v-model="value.quantity" :editMode="editMode" @change="change"/>
             <String label="SpecialRequest" v-model="value.specialRequest" :editMode="editMode"/>
+            <Number label="Quantity" v-model="value.quantity" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -46,8 +46,8 @@
         created() {
             this.value.orderId = '';
             this.value.foodType = '';
-            this.value.quantity = {};
             this.value.specialRequest = '';
+            this.value.quantity = 0;
         },
         watch: {
         },

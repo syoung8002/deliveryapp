@@ -13,7 +13,7 @@ public class OrderPlaced extends AbstractEvent {
 
     private String orderId;
     private String foodType;
-    private int quantity;
+    private Integer quantity;
     private String specialRequest;
 
     public OrderPlaced(Order aggregate) {
