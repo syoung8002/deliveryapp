@@ -44,6 +44,15 @@ public class Order {
     }
 
     //<<< Clean Arch / Port Method
+    public void checkOrderStatus(
+        CheckOrderStatusCommand checkOrderStatusCommand
+    ) {
+        //implement business logic here:
+
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
     public void addReviewAndRating(
         AddReviewAndRatingCommand addReviewAndRatingCommand
     ) {

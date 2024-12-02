@@ -43,13 +43,6 @@
                 <v-btn
                     color="primary"
                     text
-                    @click="save"
-                >
-                    주문 상태 조회
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
                     @click="remove"
                     v-if="!editMode"
                 >
@@ -67,6 +60,20 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="openCheckOrderStatus"
+            >
+                CheckOrderStatus
+            </v-btn>
+            <v-dialog v-model="checkOrderStatusDiagram" width="500">
+                <CheckOrderStatusCommand
+                    @closeDialog="closeCheckOrderStatus"
+                    @checkOrderStatus="checkOrderStatus"
+                ></CheckOrderStatusCommand>
+            </v-dialog>
             <v-btn
                 v-if="!editMode"
                 color="primary"
@@ -118,6 +125,7 @@
                 timeout: 5000,
                 text: '',
             },
+            checkOrderStatusDiagram: false,
             addReviewAndRatingDiagram: false,
         }),
 	async created() {
@@ -215,6 +223,32 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async checkOrderStatus(params) {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['checkorderstatus'].href), params)
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                    this.closeCheckOrderStatus();
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+            },
+            openCheckOrderStatus() {
+                this.checkOrderStatusDiagram = true;
+            },
+            closeCheckOrderStatus() {
+                this.checkOrderStatusDiagram = false;
             },
             async addReviewAndRating() {
                 try {

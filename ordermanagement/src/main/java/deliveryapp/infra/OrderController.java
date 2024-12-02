@@ -21,6 +21,28 @@ public class OrderController {
     OrderRepository orderRepository;
 
     @RequestMapping(
+        value = "/orders/{id}/checkorderstatus",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8"
+    )
+    public Order checkOrderStatus(
+        @PathVariable(value = "id") String id,
+        @RequestBody CheckOrderStatusCommand checkOrderStatusCommand,
+        HttpServletRequest request,
+        HttpServletResponse response
+    ) throws Exception {
+        System.out.println("##### /order/checkOrderStatus  called #####");
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+
+        optionalOrder.orElseThrow(() -> new Exception("No Entity Found"));
+        Order order = optionalOrder.get();
+        order.checkOrderStatus(checkOrderStatusCommand);
+
+        orderRepository.save(order);
+        return order;
+    }
+
+    @RequestMapping(
         value = "/orders/addreviewandrating",
         method = RequestMethod.POST,
         produces = "application/json;charset=UTF-8"
