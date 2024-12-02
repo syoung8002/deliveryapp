@@ -18,10 +18,10 @@
                                 ReviewId :  {{item.reviewId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                OrderId :  {{item.orderId }}
+                                Review :  {{item.review }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Review :  {{item.review }}
+                                OrderId :  {{item.orderId }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

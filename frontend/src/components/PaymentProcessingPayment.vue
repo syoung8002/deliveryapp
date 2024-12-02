@@ -17,10 +17,10 @@
 
         <v-card-text style="background-color: white;">
             <String v-if="editMode" label="결제 ID" v-model="value.paymentId" :editMode="editMode" :inputUI="''"/>
-            <Money offline label="금액" v-model="value.amount" :editMode="editMode" @change="change"/>
+            <Money offline label="amount" v-model="value.amount" :editMode="editMode" @change="change"/>
             <String label="결제 방법" v-model="value.paymentMethod" :editMode="editMode" :inputUI="''"/>
             <paymentMethodType offline label="결제 방법 유형" v-model="value.paymentMethodType" :editMode="editMode" @change="change"/>
-            <OrderId offline label="주문 ID" v-model="value.orderId" :editMode="editMode" @change="change"/>
+            <OrderId offline label="orderId" v-model="value.orderId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

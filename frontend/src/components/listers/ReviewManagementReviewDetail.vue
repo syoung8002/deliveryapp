@@ -9,11 +9,9 @@
                 <String label="ReviewId" v-model="item.reviewId" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="OrderId" v-model="item.orderId" :editMode="editMode" @change="change" />
-            </div>
-            <div>
                 <String label="Review" v-model="item.review" :editMode="editMode" @change="change" />
             </div>
+            <OrderId offline label="OrderId" v-model="item.orderId" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

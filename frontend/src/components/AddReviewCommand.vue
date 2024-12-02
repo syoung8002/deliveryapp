@@ -6,8 +6,8 @@
 
         <v-card-text>
             <String label="ReviewId" v-model="value.reviewId" :editMode="editMode"/>
-            <String label="OrderId" v-model="value.orderId" :editMode="editMode"/>
             <String label="Review" v-model="value.review" :editMode="editMode"/>
+            <OrderId offline label="OrderId" v-model="value.orderId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>
@@ -44,8 +44,8 @@
         }),
         created() {
             this.value.reviewId = '';
-            this.value.orderId = '';
             this.value.review = '';
+            this.value.orderId = {};
         },
         watch: {
         },

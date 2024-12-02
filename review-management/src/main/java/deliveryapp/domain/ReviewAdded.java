@@ -12,8 +12,8 @@ import lombok.*;
 public class ReviewAdded extends AbstractEvent {
 
     private String reviewId;
-    private String orderId;
     private String review;
+    private OrderId orderId;
 
     public ReviewAdded(Review aggregate) {
         super(aggregate);

@@ -67,8 +67,8 @@
             headers: 
                 [
                     { text: "reviewId", value: "reviewId" },
-                    { text: "orderId", value: "orderId" },
                     { text: "review", value: "review" },
+                    { text: "orderId", value: "orderId" },
                 ],
             review : [],
             newValue: {},
@@ -87,8 +87,8 @@
 
             this.newValue = {
                 'reviewId': '',
-                'orderId': '',
                 'review': '',
+                'orderId': {},
             }
         },
         methods: {

@@ -105,8 +105,8 @@
             
             me.newValue = {
                 'reviewId': '',
-                'orderId': '',
                 'review': '',
+                'orderId': {},
             }
         },
         methods:{

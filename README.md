@@ -48,7 +48,7 @@ mvn spring-boot:run
 ```
 - review-management
 ```
- http :8088/reviews reviewId="reviewId" orderId="orderId" review="review" 
+ http :8088/reviews reviewId="reviewId" review="review" orderId="orderId" 
 ```
 - eventcollection
 ```

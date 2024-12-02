@@ -47,8 +47,8 @@
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ ReviewId :  {{data.reviewId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Review :  {{data.review }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -117,8 +117,8 @@
             
             this.newValue = {
                 'reviewId': '',
-                'orderId': '',
                 'review': '',
+                'orderId': {},
             }
         },
         methods: {

@@ -17,9 +17,10 @@ public class Review {
     @Id
     private String reviewId;
 
-    private String orderId;
-
     private String review;
+
+    @Embedded
+    private OrderId orderId;
 
     @PostPersist
     public void onPostPersist() {
