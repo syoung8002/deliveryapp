@@ -52,6 +52,9 @@
         },
         watch: {
             value(val) {
+                if (val.amount) {
+                    val.amount = Number(val.amount)
+                }
                 this.$emit('input', val);
             },
             newValue(val) {

@@ -16,6 +16,8 @@ import org.springframework.beans.BeanUtils;
 public class OrderId {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
+
+    
 }
 //>>> DDD / Value Object

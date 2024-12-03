@@ -1,14 +1,14 @@
 <template>
     <v-card outlined @click="openDialog">
         <v-card-title>
-            Order : {{ referenceValue ? referenceValue.name : '' }}
+            Order : {{ referenceValue ? referenceValue.id : '' }}
         </v-card-title>
 
         <v-dialog v-model="pickerDialog">
             <v-card>
                 <v-card-title>Order</v-card-title>
                 <v-card-text>
-                    <OrderPicker v-model="value" @selected="pick"/>
+                    <OrdermanagementOrderPicker v-model="value" @selected="pick"/>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -50,10 +50,16 @@
                 this.newValue = this.value;
                 var path = '/orders';
                 var temp = await axios.get(axios.fixUrl(path + '/' +  Object.values(this.value)[0]));
-                if(temp.data) {
-                    this.referenceValue = temp.data
+                console.log(temp)
+                if (temp) {
+                    if(temp.data) {
+                        this.referenceValue = temp.data
+                        var arr = temp.data._links.self.href.split('/');
+                        this.referenceValue.id = arr[4];
+                    }
                 }
             }
+            console.log(this.referenceValue)
         },
         watch: {
             value(val) {

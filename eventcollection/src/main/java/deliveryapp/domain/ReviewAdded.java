@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class ReviewAdded extends AbstractEvent {
 
-    private String orderId;
+    private OrderId orderId;
     private String review;
     private Integer rating;
 }

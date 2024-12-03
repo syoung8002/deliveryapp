@@ -21,7 +21,7 @@ public class Payment {
 
     private String paymentMethod;
 
-    @Embedded
+    @Enumerated(EnumType.STRING)
     private PaymentMethodType paymentMethodType;
 
     @Embedded

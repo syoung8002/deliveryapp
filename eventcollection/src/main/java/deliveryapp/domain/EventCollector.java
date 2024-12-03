@@ -19,5 +19,5 @@ public class EventCollector {
     private String type;
     private String correlationKey;
     private String payload;
-    private String timestamp;
+    private Long timestamp;
 }

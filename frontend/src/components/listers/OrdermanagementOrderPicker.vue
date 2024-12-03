@@ -15,7 +15,7 @@
                             <v-list-item-title>
                             </v-list-item-title>
                             <v-list-item-subtitle>
-                                OrderId :  {{item.orderId }}
+                                OrderId :  {{item.id }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 FoodType :  {{item.foodType }}
@@ -56,10 +56,15 @@
             var temp = await axios.get(axios.fixUrl('/orders'))
             if(temp.data) {
                 me.list = temp.data._embedded.orders;
+                me.list.forEach(function(item) {
+                    var arr = item._links.self.href.split('/');
+                    item.id = arr[4];
+                })
             }
 
             if(me.value && typeof me.value == "object" && Object.values(me.value)[0]) {
                 var id = Object.values(me.value)[0];
+                console.log(id)
                 var tmpValue = await axios.get(axios.fixUrl('/orders/' + id))
                 if(tmpValue.data) {
                     var val = tmpValue.data
@@ -76,14 +81,8 @@
                 var obj = {}
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
-                    obj['orderId'] = arr[4]; 
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    obj['id'] = arr[4]; 
+                    console.log(obj)
                     this.$emit('selected', obj);
                 }
             },
