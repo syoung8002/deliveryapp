@@ -1,12 +1,9 @@
 package deliveryapp.domain;
 
-import java.util.Date;
-import java.util.List;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.BeanUtils;
 
 //<<< DDD / Value Object
 @Embeddable
@@ -18,6 +15,5 @@ public class OrderId {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
-    
 }
 //>>> DDD / Value Object

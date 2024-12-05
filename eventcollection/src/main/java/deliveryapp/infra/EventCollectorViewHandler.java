@@ -32,7 +32,7 @@ public class EventCollectorViewHandler {
             eventCollector.setType(orderStatusChecked.getEventType());
             eventCollector.setCorrelationKey(orderStatusChecked.getOrderId());
             eventCollector.setTimestamp(orderStatusChecked.getTimestamp());
-            // eventCollector.setPayload(orderStatusChecked.toString());
+            eventCollector.setPayload(orderStatusChecked.toString());
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class EventCollectorViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             eventCollector.setType(orderAssigned.getEventType());
             eventCollector.setCorrelationKey(String.valueOf(orderAssigned.getOrderId().getId()));
-            // eventCollector.setPayload(orderAssigned.toString());
+            eventCollector.setPayload(orderAssigned.toString());
             eventCollector.setTimestamp(orderAssigned.getTimestamp());
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);
@@ -73,7 +73,7 @@ public class EventCollectorViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             eventCollector.setType(orderPaymentCompleted.getEventType());
             eventCollector.setCorrelationKey(String.valueOf(orderPaymentCompleted.getOrderId().getId()));
-            // eventCollector.setPayload(orderPaymentCompleted.toString());
+            eventCollector.setPayload(orderPaymentCompleted.toString());
             eventCollector.setTimestamp(orderPaymentCompleted.getTimestamp());
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);
@@ -94,7 +94,7 @@ public class EventCollectorViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             eventCollector.setType(reviewAdded.getEventType());
             eventCollector.setCorrelationKey(String.valueOf(reviewAdded.getOrderId().getId()));
-            // eventCollector.setPayload(reviewAdded.toString());
+            eventCollector.setPayload(reviewAdded.toString());
             eventCollector.setTimestamp(reviewAdded.getTimestamp());
             // view 레파지 토리에 save
             eventCollectorRepository.save(eventCollector);
