@@ -2,7 +2,6 @@ package deliveryapp.domain;
 
 import deliveryapp.OrdermanagementApplication;
 import deliveryapp.domain.OrderPlaced;
-import deliveryapp.domain.OrderStatusChecked;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -28,9 +27,6 @@ public class Order {
     public void onPostPersist() {
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
-
-        OrderStatusChecked orderStatusChecked = new OrderStatusChecked(this);
-        orderStatusChecked.publishAfterCommit();
     }
 
     @PrePersist
@@ -49,6 +45,8 @@ public class Order {
     ) {
         //implement business logic here:
 
+        OrderStatusChecked orderStatusChecked = new OrderStatusChecked(this);
+        orderStatusChecked.publishAfterCommit();
     }
 
     //>>> Clean Arch / Port Method
