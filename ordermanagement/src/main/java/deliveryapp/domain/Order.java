@@ -1,7 +1,6 @@
 package deliveryapp.domain;
 
 import deliveryapp.OrdermanagementApplication;
-import deliveryapp.domain.OrderPlaced;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -23,12 +22,6 @@ public class Order {
 
     private String specialRequest;
 
-    @PostPersist
-    public void onPostPersist() {
-        OrderPlaced orderPlaced = new OrderPlaced(this);
-        orderPlaced.publishAfterCommit();
-    }
-
     @PrePersist
     public void onPrePersist() {}
 
@@ -39,6 +32,15 @@ public class Order {
         return orderRepository;
     }
 
+    //<<< Clean Arch / Port Method
+    public void placeOrder(PlaceOrderCommand placeOrderCommand) {
+        //implement business logic here:
+
+        OrderPlaced orderPlaced = new OrderPlaced(this);
+        orderPlaced.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public void checkOrderStatus(
         CheckOrderStatusCommand checkOrderStatusCommand
