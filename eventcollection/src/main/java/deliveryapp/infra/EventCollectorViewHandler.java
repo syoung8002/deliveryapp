@@ -104,5 +104,72 @@ public class EventCollectorViewHandler {
             e.printStackTrace();
         }
     }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenOrderPlaced_then_CREATE_5(
+        @Payload OrderPlaced orderPlaced
+    ) {
+        try {
+            if (!orderPlaced.validate()) return;
+
+            // view 객체 생성
+            EventCollector eventCollector = new EventCollector();
+            // view 객체에 이벤트의 Value 를 set 함
+            eventCollector.setType(OrderPlaced);
+            eventCollector.setCorrelationKey(orderPlaced.getOrderId());
+            eventCollector.setPayload(OrderPlaced);
+            eventCollector.setTimestamp(timestamp);
+            // view 레파지 토리에 save
+            eventCollectorRepository.save(eventCollector);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenOrderPaymentCompleted_then_CREATE_6(
+        @Payload OrderPaymentCompleted orderPaymentCompleted
+    ) {
+        try {
+            if (!orderPaymentCompleted.validate()) return;
+
+            // view 객체 생성
+            EventCollector eventCollector = new EventCollector();
+            // view 객체에 이벤트의 Value 를 set 함
+            eventCollector.setType(OrderPaymentCompleted);
+            eventCollector.setCorrelationKey(
+                String.valueOf(orderPaymentCompleted.getOrderId())
+            );
+            eventCollector.setPayload(OrderPaymentCompleted);
+            eventCollector.setTimestamp(timestamp);
+            // view 레파지 토리에 save
+            eventCollectorRepository.save(eventCollector);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenOrderAssigned_then_CREATE_7(
+        @Payload OrderAssigned orderAssigned
+    ) {
+        try {
+            if (!orderAssigned.validate()) return;
+
+            // view 객체 생성
+            EventCollector eventCollector = new EventCollector();
+            // view 객체에 이벤트의 Value 를 set 함
+            eventCollector.setType(OrderAssigned);
+            eventCollector.setCorrelationKey(
+                String.valueOf(orderAssigned.getOrderId())
+            );
+            eventCollector.setPayload(OrderAssigned);
+            eventCollector.setTimestamp(timestamp);
+            // view 레파지 토리에 save
+            eventCollectorRepository.save(eventCollector);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     //>>> DDD / CQRS
 }

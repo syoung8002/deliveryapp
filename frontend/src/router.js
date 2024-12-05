@@ -18,6 +18,8 @@ import ReviewManagementReviewManager from "./components/listers/ReviewManagement
 import ReviewManagementReviewDetail from "./components/listers/ReviewManagementReviewDetail"
 
 
+import EventCollectorView from "./components/EventCollectorView"
+import EventCollectorViewDetail from "./components/EventCollectorViewDetail"
 
 export default new Router({
     // mode: 'history',
@@ -68,6 +70,16 @@ export default new Router({
             },
 
 
+            {
+                path: '/eventcollections/eventCollectors',
+                name: 'EventCollectorView',
+                component: EventCollectorView
+            },
+            {
+                path: '/eventcollections/eventCollectors/:id',
+                name: 'EventCollectorViewDetail',
+                component: EventCollectorViewDetail
+            },
 
 
     ]

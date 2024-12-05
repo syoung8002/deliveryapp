@@ -28,7 +28,7 @@ spring:
         - id: eventcollection
           uri: http://localhost:8086
           predicates:
-            - Path=, 
+            - Path=, /eventCollectors/**
         - id: frontend
           uri: http://localhost:8080
           predicates:

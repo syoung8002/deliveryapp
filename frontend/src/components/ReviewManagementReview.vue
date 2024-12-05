@@ -18,7 +18,7 @@
         <v-card-text style="background-color: white;">
             <String v-if="editMode" label="리뷰 ID" v-model="value.reviewId" :editMode="editMode" :inputUI="''"/>
             <String label="리뷰 내용" v-model="value.review" :editMode="editMode" :inputUI="''"/>
-            <OrderId offline label="orderId" v-model="value.orderId" :editMode="editMode" @change="change"/>
+            <OrderId offline label="주문 ID" v-model="value.orderId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

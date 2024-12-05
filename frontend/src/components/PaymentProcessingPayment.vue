@@ -20,7 +20,7 @@
             <Money offline label="amount" v-model="value.amount" :editMode="editMode" @change="change"/>
             <String label="결제 방법" v-model="value.paymentMethod" :editMode="editMode" :inputUI="''"/>
             <paymentMethodType offline label="결제 방법 유형" v-model="value.paymentMethodType" :editMode="editMode" @change="change"/>
-            <OrderId offline label="orderId" v-model="value.orderId" :editMode="editMode" @change="change"/>
+            <OrderId offline label="주문 ID" v-model="value.orderId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

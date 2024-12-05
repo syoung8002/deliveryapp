@@ -1,5 +1,3 @@
-
-
 <template>
     <v-app id="inspire">
         <div>
@@ -83,6 +81,16 @@
 
 
 
+                    <v-list-item
+                        class="px-2"
+                        key="eventCollectors"
+                        to="/eventcollections/eventCollectors"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        EventCollector
+                    </v-list-item>
                 </v-list>
             </v-navigation-drawer>
         </div>
@@ -163,30 +171,37 @@ export default {
         aggregate: [
             { 
                 title: '주문', 
-                description: '음식 주문을 나타내는 주문 객체', 
+                description: 'Order을 관리하는 화면입니다.', 
                 key: 'orders', 
                 route: '/ordermanagements/orders',
                 ImageUrl: '',
             },
             { 
                 title: '배달 기사', 
-                description: '음식을 배달하는 배달 기사 객체', 
+                description: 'Driver을 관리하는 화면입니다.', 
                 key: 'drivers', 
                 route: '/deliverymatchings/drivers',
                 ImageUrl: '',
             },
             { 
                 title: '결제', 
-                description: '주문에 대한 결제 정보를 나타내는 결제 객체', 
+                description: 'Payment을 관리하는 화면입니다.', 
                 key: 'payments', 
                 route: '/paymentProcessings/payments',
                 ImageUrl: '',
             },
             { 
                 title: '리뷰', 
-                description: '음식 및 배달 서비스에 대한 리뷰 정보를 나타내는 리뷰 객체', 
+                description: 'Review을 관리하는 화면입니다.', 
                 key: 'reviews', 
                 route: '/reviewManagements/reviews',
+                ImageUrl: '',
+            },
+            { 
+                title: 'EventCollector', 
+                description: 'eventCollector을 관리하는 화면입니다.', 
+                key: 'eventCollectors', 
+                route: '/eventcollections/eventCollectors',
                 ImageUrl: '',
             },
             
